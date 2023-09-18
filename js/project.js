@@ -29,28 +29,22 @@ function handleStepEnter(response) {
 
     const backdrops = [
         { 'src': './assets/images/CJI-Population-1.jpg',
-        //   'caption': 'A front view of the family home where Robinson lives with his nieces and nephews.',
-        //   'alt': 'A front view of the two-story family home where Robinson lives. The house is white with horizontal siding. Red shutters and a red deck give the house a nice accent color.'
+        
         },
         { 'src': './assets/images/CJI-Population-2.jpg',
-        //  'caption': 'Family picture wall at the Robinson house of three to four generations of Robinsons. The central photo is Paul\'s niece, left, grand-niece, center, and sister, right. The other photos on the wall are his nephews and nieces.',
-        //  'alt': 'Family picture wall at the Robinson house of three to four generations of Robinsons. The central photo is Paul\'s niece, left, grand-niece, center, and sister, right. The other photos on the wall are his nephews and nieces.'
+        
         },
         { 'src': './assets/images/CJI-Population-3.jpg',
-        //   'caption': 'Paul in his silver Mini Cooper.',
-        //   'alt': 'Paul in his silver Mini Cooper. His hand is on his knee and he is turned towards the camera with a partial smile.'
+        
         },
         { 'src': './assets/images/CJI-Population-4.jpg',
-        //   'caption': 'A side-view of the Robinson family home.',
-        //   'alt': 'A side view of the Robinson family home. A BBQ can be seen at the end of the porch..'
+       
         },
         { 'src': './assets/images/CJI-Population-5.jpg',
-        // 'caption': 'A side-view of the Robinson family home.',
-        // 'alt': 'A side view of the Robinson family home. A BBQ can be seen at the end of the porch..'
+       
         },
         { 'src': './assets/images/CJI-Population-6.jpg',
-        // 'caption': 'A side-view of the Robinson family home.',
-        // 'alt': 'A side view of the Robinson family home. A BBQ can be seen at the end of the porch..'
+       
         },
     ]
     media.src = backdrops[response.index].src;
