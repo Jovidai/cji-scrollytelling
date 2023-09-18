@@ -1,0 +1,89 @@
+:root {
+    --color-bg: rgb(255, 255, 255); /** this is a color in red, green, and blue values (each from 0 to 255) **/
+    --color-text: #000000;
+    --color-primary: #FFFFFF;
+    --color-secondary: #EEF4F9;
+    --color-tertiary: #FFFFFF;
+    --font-family-body: "Proxima-Nova", sans-serif;
+    --padding: 1rem;
+    --margin: 1rem;
+}
+
+body {
+    font-family: var(--font-family-body);
+}
+
+/* base typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin-bottom: 1.3rem;
+    margin-top: 0;
+    color: var(--color-text);
+}
+
+h1 {
+    font-size: 2.7rem;
+    font-variant: all-small-caps;
+    margin-bottom: .9rem;
+    font-family: "bigmoore", serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 1.24rem;
+    margin-bottom: 1.8rem;
+    /* font-style: italic; */
+}
+
+h3 {
+    font-size: .85rem;
+    margin-bottom: .7rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: .9rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+h5 {
+    margin-top: 1rem;
+    color: grey;
+    font-size: .85rem;
+    margin-bottom: .2rem;
+}
+
+/* Header styles */
+
+p {
+    font-size: 1rem;
+    margin: var(--margin);
+    box-shadow: none;
+}
+
+header p.small {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    h3, h4 {
+        font-size: .75rem;
+        line-height: 1.3;
+    }
+    p {
+        font-size: .8rem;
+    }
+}

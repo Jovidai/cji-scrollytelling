@@ -1,500 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>CJI-Scrollytelling</title>
-    <link rel="icon" type="image/x-icon" href="">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-        name="og:title"
-        content="CJI-Scrollytelling - Introduction"/>
-      <meta
-        name="og:url"
-        content="https://jovidai.github.io/climate-change-worldwide/"/>
-      <meta 
-        name="og:type" content="website" />
-        <meta
-        name="og:image"
-        content="./images/share-tools"/>
-        <meta name="author" 
-        content="Zhaozhou Dai">
-      <meta
-        name="og:description"
-        content="An interactive and storytelling piece about climate change in the all counteies."/>
-      <meta name="og:locale" 
-        content="en_US" />
-    
-      <meta 
-        name="keywords" 
-        content="climate change impacts, temperature, sea levels">
-      <meta 
-        name="viewport" 
-        content="width=device-width, initial-scale=1">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="CJI Scrollytelling">
+        <meta name="keywords" content="incarceration, freedom, justice">
+        <meta name="author" content="Zhaozhou Dai">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- TODO update title -->
+        <meta property="og:title" content="CJI Scrollytelling" />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en" />
 
 
-    <!-- css files-->
-    <link rel="stylesheet" type="text/css" href="./style/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        
+        <title>CJI Scrollytelling</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://unpkg.com/scrollama"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <!-- script files-->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
-    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/topojson@3"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/typography.css">
+        <link rel="stylesheet" type="text/css" href="./css/layout.css">
+        <link rel="stylesheet" href="https://use.typekit.net/fno2nob.css">
+    </head>
+    <body>
+        <div class="container">
+            <header class="row" style="padding-top: 3rem;">
+                <div class="col-sm-8">
+                    <!-- <h1>Gratitude for the everyday </h1>
+                    <h2>Paul Robinson shares joys and hardships since his release </h2> -->
+                 	<!-- <h3>By Zhaozhou Dai</h3>	
+                    <h4>This story documents Paul Robinson's life after his release from prison, where he served 52 years. Paul maintains his innocence and is working with the <a href="https://www.newenglandinnocence.org/" target="_blank"> New England Innocence Project (NEIP) </a> to overturn his conviction in his fight for justice. We spoke to Paul in January 2023, approximately six months after release.</h4> -->
+                    <!-- <div class="intro">
+                        <p>For those of us on the outside, it is easy to imagine that release day, the day an incarcerated person is released from prison, is filled with positive emotions — joy, optimism, gratitude and happiness. And while most previously incarcerated people feel these or similar emotions, those are not the only ones. For any incarcerated person, re-entry is an inflection point that brings about happiness but is not devoid of challenges. Some of the challenges of re-entry have been particularly acute for Paul Robinson, a now 76-year-old man who entered the criminal justice system in the 1970s for a crime he maintains he did not commit.</p>
+                        <p>Robinson was incarcerated before the invention of the Internet, smartphones and even cell phones. People played music on audio cassettes and Walkmans. He used to pay for items with cash. The neighborhood he grew up in, Roxbury, looks and feels completely different than it did 52 years ago.</p>
+                    </div>
+                </div> -->
+                <!-- <div class="col-sm-4">
+                    <img class="img-fluid" src="./assets/images/P2740080.JPG" alt="Paul Robinson in his kitchen holding a piece of art gifted to him by the New England Innocence Project" >
+                    <h5>Paul holds an art piece that says <em>'Fighting for Freedom to the death, because it's your life they took.'</em></h5>
+                </div> -->
+            </header>
+            <section id='scroll' class="row">
+                <div class='scroll__graphic' class="col-lg-8">
+                    <div class="scroll__graphic__container" class="column">
+                        <img id="media" class="img-fluid col-lg-8" src="./assets/images/P2740071.JPG">
+                        <h5 id="caption" class="col-lg-8"></h5>
+                    </div>  
+                </div>
+                <div class='scroll__text'>
+                    <div class='step' data-step='1'>
+                        <p>We asked <b>100</b> disaster restoration workers primarily based in Florida and Louisiana if they had been exposed to asbestos, lead and mold while working to rebuild after natural disasters. 
+                        </p>
+                        <p>
+                            <em>Here’s what they shared with us:
+                            </em>
+                        </p>
+                        <p>
+                            In the conducted survey, a total of <b>100 respondents</b> participated. The gender distribution among the respondents was significantly skewed, with <b>89 respondents</b> identifying as male and <b>11</b> (11%) identifying as female.
+                        </p>
+                        <p>
+                            Regarding age groups, the respondents spanned a wide range of demographics. The majority of respondents fell into the <b>30-39 (28%)</b> and <b>40-49 (31%)</b> age groups, indicating a significant middle-aged demographic in the survey. The <b>50-59 age group</b> represented <b>20%</b> of respondents, while the <b>20-29 and 60-69 age groups</b> accounted for <b>8% and 12%</b> of respondents, respectively. Only <b>one respondent (1%) was in the 70-79 age group</b>.
+                        </p>
+                        <p>
+                            This data suggests that the survey sample is predominantly male, with a substantial representation of individuals between the ages of 30 and 49. This information can be valuable for further analysis and interpretation of your research findings, depending on the research objectives and questions you are addressing.
+                        </p>
+                    </div>
+                    <div class='step' data-step='2'>
+                        <p>
+                            72 of the 100 workers said they have been exposed to mold.
+                        </p>
 
-    <script src="./scripts/interaction-observer.js"></script>
-    <!-- <script src="./scripts/scrolling.js"></script> -->
+                    </div>
+                    <div class='step' data-step='3'>
+                        <p>
+                            52 said they have been exposed to asbestos.
+                        </p>
+ 
+                    </div>
+                    <div class='step' data-step='4'>
+                        <p>
+                            48 said they have been exposed to lead.
+                        </p>
 
-    <script src="./scripts/flickity.pkgd.min.js"></script>
+                    </div>
+                    <div class='step' data-step='5'>
+                        <p>
+                            Combined, 80 workers said they had been exposed to at least one toxin while doing disaster restoration work.
+                        </p>
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Mako&family=Marcellus&family=Open+Sans:wght@500&family=Source+Sans+Pro:wght@400;700&display=swap');
-    </style>
-
-   <style>
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
-    </style>
-
-
-  </head>
-
-  <body>
-
-    <br>
-    <br>
-    <br>
-
-    <center>Part 1: Scrollytelling</center>
-
-	<div class="main-container">
-		<section id="scrolly3" class="side-by-side">
-		<div class="sticky-thing3">
-	  
-		  <div class="ai2html-container">
-
-<!-- Generated by ai2html v0.115.1 - 2023-09-08 11:00 -->
-<!-- ai file: CJI-Population.ai -->
-<style media="screen,print">
-	#g-CJI-Population-box ,
-	#g-CJI-Population-box .g-artboard {
-		margin:0 auto;
-	}
-	#g-CJI-Population-box p {
-		margin:0;
-	}
-	#g-CJI-Population-box .g-aiAbs {
-		position:absolute;
-	}
-	#g-CJI-Population-box .g-aiImg {
-		position:absolute;
-		top:0;
-		display:block;
-		width:100% !important;
-	}
-	#g-CJI-Population-box .g-aiSymbol {
-		position: absolute;
-		box-sizing: border-box;
-	}
-	#g-CJI-Population-box .g-aiPointText p { white-space: nowrap; }
-	#g-CJI-Population-Artboard_1 {
-		position:relative;
-		overflow:hidden;
-	}
-	#g-CJI-Population-Artboard_1 p {
-		font-family:arial,helvetica,sans-serif;
-		line-height:18px;
-		height:auto;
-		opacity:1;
-		letter-spacing:0em;
-		font-size:15px;
-		text-align:left;
-		color:rgb(0,0,0);
-		text-transform:none;
-		padding-bottom:0;
-		padding-top:0;
-		mix-blend-mode:normal;
-		font-style:normal;
-		position:static;
-	}
-	#g-CJI-Population-Artboard_1 .g-pstyle0 {
-		height:18px;
-	}
-	#g-CJI-Population-Artboard_2 {
-		position:relative;
-		overflow:hidden;
-	}
-	#g-CJI-Population-Artboard_2 p {
-		font-family:arial,helvetica,sans-serif;
-		line-height:9px;
-		height:auto;
-		opacity:1;
-		letter-spacing:0em;
-		font-size:8px;
-		text-align:left;
-		color:rgb(0,0,0);
-		text-transform:none;
-		padding-bottom:0;
-		padding-top:0;
-		mix-blend-mode:normal;
-		font-style:normal;
-		position:static;
-	}
-	#g-CJI-Population-Artboard_2 .g-pstyle0 {
-		height:9px;
-	}
-
-</style>
-
-<div id="g-CJI-Population-box" class="ai2html">
-
-	<!-- Artboard: Artboard_1 -->
-	<div id="g-CJI-Population-Artboard_1" class="g-artboard" style="width:800px; height:800px;" data-aspect-ratio="1" data-min-width="800">
-<div style=""></div>
-		<img id="g-CJI-Population-Artboard_1-img" class="g-CJI-Population-Artboard_1-img g-aiImg" alt="" src="./assets/svg/population/ai2html-output/CJI-Population-Artboard_1.png"/>
-		<div id="g-ai0-1" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:97.5464%;margin-top:-10.4px;left:6.635%;width:473px;">
-			<p class="g-pstyle0">Chart: Columbia Journalism Investigations | The Center for Public Integrity &bull; Data source: </p>
-		</div>
-	</div>
-
-	<!-- Artboard: Artboard_2 -->
-	<div id="g-CJI-Population-Artboard_2" class="g-artboard" style="max-width: 531px;max-height: 541px" data-aspect-ratio="0.982" data-min-width="0" data-max-width="799">
-<div style="padding: 0 0 101.8832% 0;"></div>
-		<img id="g-CJI-Population-Artboard_2-img" class="g-CJI-Population-Artboard_2-img g-aiImg" alt="" src="./assets/svg/population/ai2html-output/CJI-Population-Artboard_2.png"/>
-		<div id="g-ai1-1" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:98.1694%;margin-top:-5.1px;left:5.2275%;width:228px;">
-			<p class="g-pstyle0">Chart: Columbia Journalism Investigations | The Center for Public Integrity &bull; Data source: </p>
-		</div>
-	</div>
-
-</div>
-
-<!-- End ai2html - 2023-09-08 11:00 -->
-
-</div>
-</div>
-
-<div class="scrolly-overlay3">
-	<div class="step3" id="step3-zero">
-		<p>
-          Our questionnaire surveyed <span style="background-color: #9FE2BF; opacity: 90%;">100 (86?)</span>workers from November 2022 - July 2023. Here are our findings.
-		</p>
-
-	  </div>
-	  
-	<div class="step3" id="step3-one">
-	  <p>
-		<span style="background-color: #75aadb; opacity: 90%;">80 of 100</span>workers said they are exposed to at one (asbestos, lead mold).
-	  </p>
-	</div>
-	
-	<div class="step3" id="step3-two">
-	  <p>
-		<span style="background-color: #FFBF00; opacity: 90%;">72</span>of them are exposed to mold.
-	  </p>
-	</div>
-	
-	<div class="step3" id="step3-three">
-	  <p>
-		<span style="background-color: #FA8072; opacity: 90%;">52</span>of them are exposed to asbestos.
-	</p>
-	</div>
-
-	<div class="step3" id="step3-four">
-	  <p>
-		<span style="background-color: #CCCCFF; opacity: 90%;">48</span>of them are exposed to lead.
-	  </p>
-
-	</div>
-
-	<div class="step3" id="step3-five">
-		<p>
-         <span style="background-color: #40E0D0; opacity: 90%;">38</span>had been exposed to all three toxins.
-		</p>
-	</div>
-
-	<!-- <div class="step3" id="step3-six">
-		<p>
-			In order to mitigate the impacts of global warming on glaciers and other systems, humans should <span style="background-color: #5555DD; opacity: 90%;">reduce greenhouse gas emissions and shift towards renewable energy sources</span>.
-		</p>
-	</div> -->
-
-  </div>
-  </section>
-
-  <!-- <script>
-      
-	/* Scrollytelling code goes under here */
-	
-		d3.select("#path-1-1").classed("hidden", true)
-		d3.select("#path-1-1-2").classed("hidden", true) // purple circle
-	    d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-2-2").classed("hidden", true)
-		d3.select("#path-1-3").classed("hidden", true)
-		d3.select("#path-1-3-2").classed("hidden", true)
-	    d3.select("#path-2-1").classed("hidden", true)
-	    d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", true)
-		d3.selectAll('.g-tag-number').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-		// d3.selectAll("[data-name='dot-baotou'").classed("hidden", true)
-		// d3.selectAll("[data-name='dot-yichun'").classed("hidden", true)
-	  
-
-		d3.select("#step3-zero").on('stepin',function(e) {
-
-		d3.select("#path-1-1").classed("hidden", true)
-		d3.select("#path-1-1-2").classed("hidden", true)
-		d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-2-2").classed("hidden", true)
-		d3.select("#path-1-3").classed("hidden", true)
-		d3.select("#path-1-3-2").classed("hidden", true)
-		d3.select("#path-2-1").classed("hidden", true)
-		d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", true)
-		d3.selectAll('.g-tag-number').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-		})
-
-	  d3.select("#step3-one").on('stepin',function(e) {
-
-		d3.select("#path-1-1").classed("hidden", true)
-	    d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-3").classed("hidden", true)
-	    d3.select("#path-2-1").classed("hidden", true)
-	    d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-	  })
-
-	  d3.select("#step3-two").on('stepin',function(e) {
-		d3.select("#path-1-1").classed("hidden", true)
-		d3.select("#path-1-1-2").classed("hidden", true) // first circle
-	    d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-2-2").classed("hidden", true) // second circle
-		d3.select("#path-1-3").classed("hidden", false)
-		d3.select("#path-1-3-2").classed("hidden", false) // purple circle and line
-	    d3.select("#path-2-1").classed("hidden", true)
-	    d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-	  })
-
-
-	    d3.select("#step3-three").on('stepin',function(e) {
-		d3.select("#path-1-1").classed("hidden", false)
-		d3.select("#path-1-1-2").classed("hidden", false) // first circle
-	    d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-2-2").classed("hidden", true) // second circle
-		d3.select("#path-1-3").classed("hidden", false)
-		d3.select("#path-1-3-2").classed("hidden", false) // purple circle and line
-	    d3.select("#path-2-1").classed("hidden", false)
-	    d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-	  })
-
-	  d3.select("#step3-three").on('stepin',function(e) {
-		d3.select("#path-1-1").classed("hidden", true)
-		d3.select("#path-1-1-2").classed("hidden", false) // first circle
-	    d3.select("#path-1-2").classed("hidden", true)
-		d3.select("#path-1-2-2").classed("hidden", true) // second circle
-		d3.select("#path-1-3").classed("hidden", false)
-		d3.select("#path-1-3-2").classed("hidden", false) // purple circle and line
-	    d3.select("#path-2-1").classed("hidden", false)
-	    d3.select("#path-2-2").classed("hidden", true)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", true)
-	  })
-
-
-	  d3.select("#step3-four").on('stepin',function(e) {
-		d3.select("#path-1-1").classed("hidden", true)
-		d3.select("#path-1-1-2").classed("hidden", true) // firt circle
-	    d3.select("#path-1-2").classed("hidden", false)
-		d3.select("#path-1-2-2").classed("hidden", false) // second circle
-		d3.select("#path-1-3").classed("hidden", false)
-		d3.select("#path-1-3-2").classed("hidden", false) // purple circle and line
-	    d3.select("#path-2-1").classed("hidden", true)
-	    d3.select("#path-2-2").classed("hidden", false)
-		d3.select("#path-2-3").classed("hidden", true)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", true)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", false)
-	  })
-
-	  d3.select("#step3-five").on('stepin',function(e) {
-		d3.select("#path-1-1").classed("hidden", false)
-		d3.select("#path-1-1-2").classed("hidden", false)
-	    d3.select("#path-1-2").classed("hidden", false)
-		d3.select("#path-1-2-2").classed("hidden", false)
-		d3.select("#path-1-3").classed("hidden", false)
-		d3.select("#path-1-3-2").classed("hidden", false)
-	    d3.select("#path-2-1").classed("hidden", false)
-	    d3.select("#path-2-2").classed("hidden", false)
-		d3.select("#path-2-3").classed("hidden", false)
-		d3.selectAll('.g-text-case-1').classed("hidden", false)
-		d3.selectAll('.g-tag-number').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-1').classed("hidden", false)
-		d3.selectAll('.g-tag-circle-2').classed("hidden", false)
-	  })
-
-
-</script> -->
-
- <!-- Very IMPORTANT!!! -->
-
-<script>
-	const scroller3 = scrollama();
-  
-  scroller3
-	.setup({
-	  step: "#scrolly3 .scrolly-overlay3 .step3",
-	  offset: 0.5,
-	  debug: false
-	})
-	.onStepEnter(function({ element, index, direction}) {
-	  const event = new CustomEvent('stepin', { detail: { direction: direction } })
-	  element.dispatchEvent(event);
-	})
-	.onStepExit(function({ element, index, direction }) {
-	  const event = new CustomEvent('stepout', { detail: { direction: direction } })
-	  element.dispatchEvent(event);
-	});
-  
-  window.addEventListener("resize", scroller3.resize);
-		</script>
-
-
-<!-- End ai2html - 2023-04-12 00:20 -->
-	  
-    </div>
-
-    <!-- <br>
-    <br>
-    <br>
-    <br> -->
+                    </div>
+                    <div class='step' data-step='6'>
+                        <p>
+                            28 workers said they didn’t know if they had been exposed.
+                        </p>
+                </div>
+            </section>
+            <!-- <div class="outro row">
+                <div class="col-lg-8">
+                    <p>Despite spending the majority of his life incarcerated for a crime he did not commit, Robinson does not seem resentful, only grateful. His gratitude is a gift and a lesson we can all take away from.</p>
+                    <p><i>Personally, myself, I spent a lot of years in prison, many, many years in prison. And I realize that I can't make up for those years that I spent in prison. But my plan is, my thought is, to have a good life from this point on and enjoy what I have. I'm very grateful. I have a strong sense of gratitude in being free again.</i></p>
+                </div>
+            </div>
+            <div id="videoWrapper" class="row">
+                <iframe width="60px" height="715" src="https://www.youtube.com/embed/rw4g3Oy9sX4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <h3 style="padding-top: 2rem">Many thanks to Paul for graciously sharing his story. We hope that this story honors Paul and his fight for justice.</h3>
+            </div>
+        </div>
+        <footer>
+            <p>A collaboration with the <a style="color:black" href="https://www.newenglandinnocence.org/" target="_blank"> New England Innocence Project</a></p>
+            <img class="col-1" src = "./assets/NEIP/NEIP_Vector-highres-Transparent (2).png" alt="New England Innocence Project Logo"/>
+        </footer> -->
+        
 
 
 
-
-    
-  </main>
-
-   <!-- ai2html resizer script -->
-	<script type="text/javascript">
-		(function() {
-			// only want one resizer on the page
-			if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
-			document.documentElement.className += " g-resizer-v3-init";
-			// require IE9+
-			if (!("querySelector" in document)) return;
-			function resizer() {
-				var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
-					widthById = {};
-				elements.forEach(function(el) {
-					var parent = el.parentNode,
-						width = widthById[parent.id] || parent.getBoundingClientRect().width,
-						minwidth = el.getAttribute("data-min-width"),
-						maxwidth = el.getAttribute("data-max-width");
-					widthById[parent.id] = width;
-	
-					if (+minwidth <= width && (+maxwidth >= width || maxwidth === null)) {
-						el.style.display = "block";
-					} else {
-						el.style.display = "none";
-					}
-				});
-				try {
-					if (window.parent && window.parent.$) {
-						window.parent.$("body").trigger("resizedcontent", [window]);
-					}
-					if (window.require) {
-						require(['foundation/main'], function() {
-							require(['shared/interactive/instances/app-communicator'], function(AppCommunicator) {
-								AppCommunicator.triggerResize();
-							});
-						});
-					}
-				} catch(e) { console.log(e); }
-			}
-	
-			document.addEventListener('DOMContentLoaded', resizer);
-			// feel free to replace throttle with _.throttle, if available
-			window.addEventListener('resize', throttle(resizer, 200));        
-	
-			function throttle(func, wait) {
-				// from underscore.js
-				var _now = Date.now || function() { return new Date().getTime(); },
-					context, args, result, timeout = null, previous = 0;
-				var later = function() {
-					previous = _now();
-					timeout = null;
-					result = func.apply(context, args);
-					if (!timeout) context = args = null;
-				};
-				return function() {
-					var now = _now(), remaining = wait - (now - previous);
-					context = this;
-					args = arguments;
-					if (remaining <= 0 || remaining > wait) {
-						if (timeout) {
-							clearTimeout(timeout);
-							timeout = null;
-						}
-						previous = now;
-						result = func.apply(context, args);
-						if (!timeout) context = args = null;
-					} else if (!timeout && options.trailing !== false) {
-						timeout = setTimeout(later, remaining);
-					}
-					return result;
-				};
-			}
-	
-		   
-		})();
-	</script>
-
-<br>
-<br>
-<br>
-
-<br>
-<br>
-<br>
-
-<center>Part 2: Scene VR</center>
-
-<br>
-<br>
-<br>
-
-<iframe width="100%" height="600" src=https://uploads.knightlab.com/scenevr/12514/6792af4b/index.html frameborder="0" allowfullscreen />
-
-  </body>
-
+    </body>
+    <script src="./js/project.js"></script>
 </html>
