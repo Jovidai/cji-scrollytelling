@@ -46,6 +46,8 @@ function handleStepEnter(response) {
         { 'src': './assets/images/CJI-Population-6.jpg',
        
         },
+        { 'src': './assets/images/CJI-Population-7.jpg',
+        },
     ]
     media.src = backdrops[response.index].src;
     media.alt = backdrops[response.index].alt;
