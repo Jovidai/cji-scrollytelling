@@ -29,27 +29,37 @@ function handleStepEnter(response) {
 
     const backdrops = [
         { 'src': './assets/images/CJI-Population-1.jpg',
-        
         },
+
         { 'src': './assets/images/CJI-Population-2.jpg',
-        
         },
+        
         { 'src': './assets/images/CJI-Population-3.jpg',
+        },
         
-        },
         { 'src': './assets/images/CJI-Population-4.jpg',
-       
         },
+        
         { 'src': './assets/images/CJI-Population-5.jpg',
-       
         },
+        
         { 'src': './assets/images/CJI-Population-6.jpg',
-       
         },
+        
         { 'src': './assets/images/CJI-Population-7.jpg',
         },
+
         { 'src': './assets/images/CJI-Population-7.jpg',
-    },
+        },
+        
+        { 'src': './assets/images/CJI-Population-7.jpg',
+        },
+        
+        { 'src': './assets/images/CJI-Population-7.jpg',
+        },
+        
+        // { 'src': './assets/images/CJI-Population-7.jpg',
+        // },
     ]
     media.src = backdrops[response.index].src;
     media.alt = backdrops[response.index].alt;
